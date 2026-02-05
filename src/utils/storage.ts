@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { STORAGE_KEY } from '../constants/config'
+import { STORAGE_KEY } from '../constants/config';
 
 export const saveToDisk =  async (key: string , data: any) => {
     try {

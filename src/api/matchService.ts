@@ -1,16 +1,12 @@
 import axios from 'axios';
-import { API_TOKEN, API_URL } from '../constants/config';
+import { API_URL } from '../constants/config';
 
 const client = axios.create({
-  baseURL: API_URL,
-  params: API_TOKEN
+  baseURL: API_URL
 });
 
-export const fetchDataByRange = (stratDate: string, endDate: string) =>
-    clint.get('entries/list', {
-            params: {
-                from: stratDate,
-                to: endDate,
-                timeZone: 3
-                }
-        });
+export const fetchMatches = (params: any) =>
+  client.get('Games/list', { params: { timezone: 3, ...params } });
+
+export const fetchGameDetails = (id: number) => client.get(`Games/${id}`);
+export const fetchLeagues = () => client.get('Leagues');
